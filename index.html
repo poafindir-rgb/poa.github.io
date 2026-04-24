@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Портфолио — AI проекты (ЖКХ / B2B)</title>
+  <meta name="description" content="Портфолио AI-приложений: ЖКХ актирование, нейро-диспетчер УК, ОСС-ДокМастер" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.04);
+      --border:rgba(255,255,255,.12);
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --accent:#2563eb;
+      --accent2:#60a5fa;
+      --chip:rgba(96,165,250,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(37,99,235,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(96,165,250,.25), transparent 55%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1080px; margin:0 auto; padding:44px 18px 70px}
+    header{
+      display:flex; gap:18px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;
+      padding:22px; border:1px solid var(--border); border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      backdrop-filter: blur(8px);
+    }
+    .title{min-width:280px; flex:1}
+    .title h1{margin:0 0 8px; font-size:30px; line-height:1.15}
+    .title p{margin:0; color:var(--muted); max-width:78ch}
+    .right{display:flex; flex-direction:column; gap:10px; align-items:flex-end; min-width:260px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px; border-radius:12px;
+      background:var(--accent); color:#fff; border:0; cursor:pointer;
+      text-decoration:none; font-weight:650;
+      box-shadow:0 10px 30px rgba(37,99,235,.25);
+      width:100%;
+    }
+    .btn:hover{background:#1d4ed8; text-decoration:none}
+    .btn.secondary{background:transparent; border:1px solid var(--border); color:var(--text); box-shadow:none}
+    .btn.secondary:hover{border-color:rgba(255,255,255,.22)}
+    .muted{color:var(--muted)}
+    .grid{display:grid; gap:16px; margin-top:18px}
+    @media(min-width:900px){.grid{grid-template-columns:1.15fr .85fr}}
+    .card{
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+    }
+    .section-title{
+      margin:4px 0 10px;
+      font-size:12px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0}
+    .chip{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(96,165,250,.25);
+      background:var(--chip);
+      color:#cfe7ff;
+      white-space:nowrap;
+    }
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px}
+    .kpi .box{
+      border:1px solid var(--border);
+      background:var(--card2);
+      border-radius:14px;
+      padding:12px;
+    }
+    .kpi .num{font-size:18px; font-weight:800}
+    .kpi .lbl{font-size:12px; color:var(--muted); margin-top:3px}
+    .projects{display:grid; gap:16px; margin-top:14px}
+    @media(min-width:900px){.projects{grid-template-columns:1fr 1fr}}
+    .proj{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:18px;
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+    }
+    .proj h3{margin:0 0 6px; font-size:18px}
+    .bul{margin:10px 0 0 18px}
+    .bul li{margin:6px 0; color:var(--text)}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .actions .btn{width:auto}
+    .divider{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+    .footer{
+      margin-top:22px;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+      color:var(--muted);
+    }
+    .mini{font-size:12px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="title">
+        <h1>Портфолио: AI-приложения для ЖКХ и B2B-процессов</h1>
+        <p>
+          Разрабатываю AI-native веб-приложения на базе Google AI Studio: автоматизация документооборота,
+          диспетчеризация обращений, актирование работ “до/после”, аналитика SLA и контроль качества.
+        </p>
+
+        <div class="kpi">
+          <div class="box">
+            <div class="num">3</div>
+            <div class="lbl">готовых демо-проекта</div>
+          </div>
+          <div class="box">
+            <div class="num">B2B</div>
+            <div class="lbl">ориентация</div>
+          </div>
+          <div class="box">
+            <div class="num">AI Studio</div>
+            <div class="lbl">платформа</div>
+          </div>
+        </div>
+
+        <div class="chips" style="margin-top:12px">
+          <span class="chip">УК / ТСЖ</span>
+          <span class="chip">Документы (PDF/ZIP)</span>
+          <span class="chip">SLA / диспетчеризация</span>
+          <span class="chip">Computer Vision (до/после)</span>
+          <span class="chip">Gemini AI</span>
+        </div>
+      </div>
+
+      <div class="right">
+        <a class="btn secondary" href="mailto:poa.findir@gmail.com">poa.findir@gmail.com</a>
+        <a class="btn secondary" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub: poafindir-rgb</a>
+        <span class="mini muted">Telegram можно добавить при желании.</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <div class="section-title">Чем полезен бизнесу / какие задачи решаю</div>
+        <ul class="bul">
+          <li>Автоматизирую рутинные процессы: заявки, документы, согласования, отчёты, реестры.</li>
+          <li>Проектирую conversational UX и устойчивые промты (работают в “стрессе”, не ломаются на краевых сценариях).</li>
+          <li>Встраиваю AI-проверки качества: комплектность, логические ошибки, контроль доказательств “до/после”.</li>
+          <li>Делаю понятные B2B-дашборды: SLA-таймеры, аналитика причин, нагрузка команд, экспорт документов.</li>
+          <li>Собираю demo-ready приложения: роли, статусы, данные в LocalStorage, быстрый цикл “ввод → результат”.</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <div class="section-title">Как смотреть проекты</div>
+        <ul class="bul">
+          <li>Нажмите <b>Открыть демо</b> — откроется приложение в Google AI Studio.</li>
+          <li>Если демо требует доступ — откройте ссылку в браузере под своим аккаунтом AI Studio.</li>
+          <li>Проекты сделаны так, чтобы их можно было показывать как готовые кейсы (с данными и сценариями).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Стек</div>
+        <div class="chips">
+          <span class="chip">Google AI Studio</span>
+          <span class="chip">Gemini (AI)</span>
+          <span class="chip">React</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">Recharts</span>
+          <span class="chip">Express</span>
+          <span class="chip">SQLite</span>
+          <span class="chip">LocalStorage</span>
+          <span class="chip">PDF generation</span>
+          <span class="chip">ZIP export</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-title">Форматы, которые умею делать</div>
+        <ul class="bul">
+          <li>B2B-приложения: роли, статусы, канбан, отчёты, экспорт.</li>
+          <li>AI-ассистенты: классификация, чек-листы, уточнения, структурный JSON-вывод.</li>
+          <li>Документооборот: протоколы/уведомления/акты/пакеты для архива.</li>
+          <li>Computer vision-кейсы: проверка “до/после”, подтверждения выполнения работ.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="section-title" style="margin-top:20px">Проекты</div>
+
+    <section class="projects">
+
+      <article class="proj">
+        <h3>Проект 1 — «Актирование работ ЖКХ (до/после)»</h3>
+        <p class="muted" style="margin:0">
+          Веб-приложение для УК и подрядчиков: фиксирует выполненные работы, проверяет качество с помощью ИИ
+          и формирует отчётную документацию (акт и иллюстрированный отчёт).
+        </p>
+
+        <ul class="bul">
+          <li>Реестр заявок с фильтрами по статусам (Черновик / Нужны фото / На проверке / Принято) и поиском.</li>
+          <li>Создание заявки с AI-классификацией типа работ (сантехника, электрика, уборка и т.д.) и чек-листом.</li>
+          <li>Фото «До/После» через drag-and-drop + наглядное сравнение и контроль ракурсов.</li>
+          <li>AI-анализ: проверка комплектности, авто-описание изменений, выявление недостающих доказательств.</li>
+          <li>Генерация PDF: иллюстрированный отчёт и акт выполненных работ с реквизитами и подписями.</li>
+          <li>Full-stack: Express + SQLite для хранения и быстрого доступа к архиву заявок.</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">ЖКХ / Facility</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">PDF / Документы</span>
+          <span class="chip">Express</span>
+          <span class="chip">SQLite</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="https://ai.studio/apps/4cb7dee9-7e17-4289-8ed7-3ba463523b21" target="_blank" rel="noreferrer">Открыть демо</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <h3>Проект 2 — «Нейро-диспетчер УК / Facility Desk» (B2B)</h3>
+        <p class="muted" style="margin:0">
+          B2B веб-приложение для управляющих компаний: принимает обращения жильцов, уточняет данные по чек-листу,
+          классифицирует заявки, назначает SLA и ведёт полный цикл “обращение → задача → выполнение → аналитика”.
+        </p>
+
+        <ul class="bul">
+          <li>AI-сервис (Gemini): классификация, проверка по чек-листу, до 2 уточняющих вопросов за ход, инструкции мастерам.</li>
+          <li>Роли: Resident (чат), Dispatcher (Inbox + SLA таймеры), Technician (канбан + чек-листы + фото), Manager (аналитика).</li>
+          <li>SLA и приоритизация: авто-назначение сроков реакции/решения по матрице, визуальные таймеры и статусы.</li>
+          <li>Роутинг: интерактивная карта-заглушка RouteManager для маршрутов бригад и “окон доступа”.</li>
+          <li>Аналитика: Recharts — нагрузка бригад, причины аварий, соблюдение SLA и сроки закрытия.</li>
+          <li>Демо-данные: 20+ обращений, 10 задач, 3 бригады; хранение в LocalStorage.</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">B2B / УК</span>
+          <span class="chip">Dispatch / SLA</span>
+          <span class="chip">React</span>
+          <span class="chip">Tailwind</span>
+          <span class="chip">Gemini AI</span>
+          <span class="chip">Recharts</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="https://ai.studio/apps/4ecae43b-7a2a-4174-a4d6-10353b102b56" target="_blank" rel="noreferrer">Открыть демо</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <h3>Проект 3 — «ОСС-ДокМастер» (B2B)</h3>
+        <p class="muted" style="margin:0">
+          B2B инструмент для УК и ТСЖ: автоматизирует подготовку и проведение общего собрания собственников
+          (очно/заочно/очно-заочно) — от повестки и документов до проверок, реестров, голосования и архивного пакета.
+        </p>
+
+        <ul class="bul">
+          <li>Dashboard: прогресс подготовки ОСС, статус уведомлений и панель рисков, выявленных ИИ.</li>
+          <li>Конструктор ОСС (3 шага): параметры дома, тип собрания, повестка из библиотеки шаблонов (тарифы, капремонт, смена УК и др.).</li>
+          <li>AI-генерация (Gemini 3 Flash): уведомления, бюллетени и протоколы по введённым данным.</li>
+          <li>AI Compliance: аудит пакета (даты, приложения, математическая корректность кворума).</li>
+          <li>Реестры и голосование: статусы уведомлений + “за/против/воздержался” с расчётом долей и визуализацией итогов.</li>
+          <li>Экспорт: PDF каждого документа и ZIP-архив «Пакет для архива/ГИС ЖКХ».</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">B2B / УК / ТСЖ</span>
+          <span class="chip">Документы</span>
+          <span class="chip">Compliance</span>
+          <span class="chip">Gemini 3 Flash</span>
+          <span class="chip">PDF</span>
+          <span class="chip">ZIP</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="https://ai.studio/apps/83853589-4ece-4f24-9852-06ab1211b2c4" target="_blank" rel="noreferrer">Открыть демо</a>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="footer">
+      <div class="mini">© <span id="y"></span> • Сделано на GitHub Pages</div>
+      <div class="mini">Сайт: <span class="muted">https://poa.github.io/</span></div>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
