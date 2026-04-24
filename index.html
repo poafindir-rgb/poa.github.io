@@ -98,6 +98,13 @@
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
     .actions .btn{width:auto}
     .divider{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:#d1fae5;
+      background:rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      padding:6px 10px; border-radius:999px;
+    }
     .footer{
       margin-top:22px;
       display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
@@ -110,6 +117,7 @@
 <body>
   <div class="wrap">
 
+    <!-- HEADER -->
     <header>
       <div class="title">
         <h1>Портфолио: AI-приложения для ЖКХ и B2B-процессов</h1>
@@ -149,6 +157,48 @@
       </div>
     </header>
 
+    <!-- ABOUT ME -->
+    <section class="card" style="margin-top:18px">
+      <div class="section-title">О себе</div>
+      <p class="muted" style="margin:0; max-width:90ch">
+        Я делаю AI-native веб-приложения для B2B: автоматизацию заявок, документов и контроль качества работ.
+        Сильные стороны — продуктовая постановка задачи, conversational UX, устойчивые промты, аккуратные интерфейсы,
+        и доведение демо до пилота (роли, статусы, реестры, экспорт PDF/ZIP).
+      </p>
+
+      <div class="chips" style="margin-top:12px">
+        <span class="chip">B2B / ЖКХ</span>
+        <span class="chip">AI Studio</span>
+        <span class="chip">Conversational UX</span>
+        <span class="chip">Документы и реестры</span>
+        <span class="chip">SLA / процессы</span>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="card" style="margin-top:16px">
+      <div class="section-title">Услуги / форматы работы</div>
+
+      <ul class="bul">
+        <li><b>MVP AI-приложения</b>: сбор требований → UX прототип → рабочее демо (роли, статусы, данные, экспорт).</li>
+        <li><b>AI-агент под процесс</b>: классификация, чек-листы, уточняющие вопросы, генерация документов/отчётов.</li>
+        <li><b>Аудит промтов и устойчивости</b>: стресс-сценарии, сценарные тесты, улучшение структуры и безопасности.</li>
+        <li><b>Документооборот</b>: протоколы/уведомления/акты, реестры, “пакет для архива”, контроль комплектности.</li>
+        <li><b>Дашборды и аналитика</b>: SLA, нагрузка команд, причины инцидентов, отчёты и метрики.</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Как я работаю</div>
+      <ul class="bul">
+        <li>1) Быстро уточняю задачу и роли пользователей (15–30 минут).</li>
+        <li>2) Проектирую сценарий и интерфейс (экраны, статусы, данные).</li>
+        <li>3) Собираю демо/MVP и проверяю на краевых случаях.</li>
+        <li>4) Готовлю передачу: описание логики, рекомендации по развитию.</li>
+      </ul>
+    </section>
+
+    <!-- VALUE + STACK (existing layout) -->
     <div class="grid">
       <section class="card">
         <div class="section-title">Чем полезен бизнесу / какие задачи решаю</div>
@@ -168,6 +218,10 @@
           <li>Если демо требует доступ — откройте ссылку в браузере под своим аккаунтом AI Studio.</li>
           <li>Проекты сделаны так, чтобы их можно было показывать как готовые кейсы (с данными и сценариями).</li>
         </ul>
+
+        <div style="margin-top:10px">
+          <span class="badge">✅ 3 проекта доступны по ссылкам</span>
+        </div>
       </section>
 
       <section class="card">
@@ -197,10 +251,12 @@
       </section>
     </div>
 
+    <!-- PROJECTS -->
     <div class="section-title" style="margin-top:20px">Проекты</div>
 
     <section class="projects">
 
+      <!-- PROJECT 1 -->
       <article class="proj">
         <h3>Проект 1 — «Актирование работ ЖКХ (до/после)»</h3>
         <p class="muted" style="margin:0">
@@ -217,6 +273,15 @@
           <li>Full-stack: Express + SQLite для хранения и быстрого доступа к архиву заявок.</li>
         </ul>
 
+        <div class="divider"></div>
+        <div class="section-title">Мини-архитектура</div>
+        <ul class="bul">
+          <li><b>Frontend:</b> веб-интерфейс заявок + загрузка фото “до/после”.</li>
+          <li><b>AI:</b> проверка комплектности, описание изменений, подсказка недостающих доказательств.</li>
+          <li><b>Backend/Storage:</b> Express + SQLite для реестра заявок и архива.</li>
+          <li><b>Экспорт:</b> генерация PDF (акт + иллюстрированный отчёт).</li>
+        </ul>
+
         <div class="chips">
           <span class="chip">ЖКХ / Facility</span>
           <span class="chip">Computer Vision</span>
@@ -230,6 +295,7 @@
         </div>
       </article>
 
+      <!-- PROJECT 2 -->
       <article class="proj">
         <h3>Проект 2 — «Нейро-диспетчер УК / Facility Desk» (B2B)</h3>
         <p class="muted" style="margin:0">
@@ -246,6 +312,15 @@
           <li>Демо-данные: 20+ обращений, 10 задач, 3 бригады; хранение в LocalStorage.</li>
         </ul>
 
+        <div class="divider"></div>
+        <div class="section-title">Мини-архитектура</div>
+        <ul class="bul">
+          <li><b>Frontend:</b> роли (Resident/Dispatcher/Technician/Manager), канбан, SLA-таймеры.</li>
+          <li><b>AI:</b> классификация, чек-лист, до 2 уточняющих вопросов, инструкции мастеру.</li>
+          <li><b>Данные:</b> демо-набор + сохранение в LocalStorage, событийный лог статусов.</li>
+          <li><b>Аналитика:</b> графики и отчёты по SLA, нагрузке бригад, причинам аварий.</li>
+        </ul>
+
         <div class="chips">
           <span class="chip">B2B / УК</span>
           <span class="chip">Dispatch / SLA</span>
@@ -260,6 +335,7 @@
         </div>
       </article>
 
+      <!-- PROJECT 3 -->
       <article class="proj">
         <h3>Проект 3 — «ОСС-ДокМастер» (B2B)</h3>
         <p class="muted" style="margin:0">
@@ -276,6 +352,15 @@
           <li>Экспорт: PDF каждого документа и ZIP-архив «Пакет для архива/ГИС ЖКХ».</li>
         </ul>
 
+        <div class="divider"></div>
+        <div class="section-title">Мини-архитектура</div>
+        <ul class="bul">
+          <li><b>Конструктор:</b> мастер ОСС (тип, даты, повестка, собственники, приложения).</li>
+          <li><b>AI:</b> генерация уведомлений/бюллетеней/протоколов + compliance-проверки логики.</li>
+          <li><b>Реестры:</b> уведомления и результаты голосования, подсчёт долей.</li>
+          <li><b>Экспорт:</b> PDF каждого документа + ZIP “пакет для архива/проверок”.</li>
+        </ul>
+
         <div class="chips">
           <span class="chip">B2B / УК / ТСЖ</span>
           <span class="chip">Документы</span>
@@ -290,6 +375,28 @@
         </div>
       </article>
 
+    </section>
+
+    <!-- CTA -->
+    <section class="card" style="margin-top:18px">
+      <div class="section-title">Обсудить проект</div>
+      <p class="muted" style="margin:0; max-width:90ch">
+        Если вам нужен AI-агент или B2B-инструмент (заявки, документы, реестры, SLA, контроль качества),
+        напишите — отвечу с предложением по формату и плану работ.
+      </p>
+
+      <div class="actions" style="margin-top:14px">
+        <a class="btn" href="mailto:poa.findir@gmail.com?subject=Запрос%20на%20AI%20проект&body=Здравствуйте!%0A%0AКоротко о задаче:%0A1)%20Сфера:%0A2)%20Процесс:%0A3)%20Кто пользователи:%0A4)%20Желаемый результат:%0A5)%20Сроки:%0A%0AСпасибо!">
+          Написать на почту
+        </a>
+        <a class="btn secondary" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">
+          Посмотреть GitHub
+        </a>
+      </div>
+
+      <p class="mini muted" style="margin-top:10px">
+        Удобно, если в письме будут: сфера, роли пользователей, входные данные (текст/фото/таблицы), желаемый результат и сроки.
+      </p>
     </section>
 
     <div class="footer">
