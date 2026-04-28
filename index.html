@@ -3,769 +3,505 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI-автоматизация B2B процессов — лендинг + портфолио</title>
-  <meta name="description" content="AI-native веб-приложения для B2B: заявки, документы, диспетчеризация, контроль качества. Портфолио с демо." />
-
+  <title>AI-автоматизация для B2B — лендинг + портфолио</title>
+  <meta name="description" content="AI-native веб-приложения для B2B: заявки, SLA, документы, контроль качества. Портфолио с демо и кодом." />
   <style>
     :root{
       --bg:#070b14;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.04);
+      --bg2:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.04);
       --border:rgba(255,255,255,.12);
-      --text:#e9eefb;
+      --text:#eaf0ff;
       --muted:#a7b0c0;
       --accent:#2563eb;
-      --accent2:#7dd3fc;
-      --yellow:#facc15;
-      --yellow2:#fde047;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --accent2:#60a5fa;
+      --chip:rgba(96,165,250,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
       --radius: 22px;
-      --radius2: 18px;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(1200px 800px at 12% -10%, rgba(37,99,235,.28), transparent 55%),
-        radial-gradient(900px 600px at 88% 0%, rgba(125,211,252,.18), transparent 55%),
-        radial-gradient(900px 700px at 50% 120%, rgba(250,204,21,.10), transparent 60%),
-        var(--bg);
+        radial-gradient(1000px 600px at 20% -10%, rgba(37,99,235,.30), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(96,165,250,.22), transparent 55%),
+        radial-gradient(700px 420px at 50% 110%, rgba(37,99,235,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
     }
-
     a{color:var(--accent2); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrap{
-      max-width:1160px;
-      margin:0 auto;
-      padding:28px 18px 90px;
-    }
-
-    /* Top nav */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(7,11,20,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar-inner{
-      max-width:1160px;
-      margin:0 auto;
-      padding:14px 18px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
+    .wrap{max-width:1120px; margin:0 auto; padding:48px 18px 86px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      margin-bottom:22px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:900;
-      letter-spacing:.02em;
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.02em;
     }
     .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(180deg, var(--yellow2), var(--yellow));
-      box-shadow: 0 0 0 3px rgba(250,204,21,.18);
+      width:10px; height:10px; border-radius:50%;
+      background:linear-gradient(180deg, var(--accent2), var(--accent));
+      box-shadow:0 0 0 6px rgba(96,165,250,.10);
     }
-    .nav{
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
-    }
-    .nav a{
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    .navlinks a{
       color:var(--muted);
-      font-weight:650;
-      font-size:13px;
       padding:8px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      border:1px solid transparent;
     }
-    .nav a:hover{ color:var(--text); border-color: rgba(255,255,255,.16); text-decoration:none }
-
-    .cta-mini{
-      display:flex; gap:10px; align-items:center;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-weight:800;
-      cursor:pointer;
+    .navlinks a:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.14);
       text-decoration:none;
-      box-shadow: none;
-      white-space:nowrap;
-    }
-    .btn:hover{border-color: rgba(255,255,255,.20); text-decoration:none}
-
-    .btn.primary{
-      border:0;
-      background: linear-gradient(180deg, #3b82f6, #2563eb);
-      box-shadow: 0 18px 50px rgba(37,99,235,.26);
-    }
-    .btn.primary:hover{filter:brightness(1.04)}
-
-    /* Sections */
-    section{
-      margin-top: 56px;
+      background:rgba(255,255,255,.04);
     }
 
-    .hero{
-      margin-top: 34px;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: calc(var(--radius) + 8px);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      padding: 48px 28px;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(500px 220px at 20% 20%, rgba(250,204,21,.12), transparent 70%),
-        radial-gradient(480px 260px at 80% 10%, rgba(125,211,252,.14), transparent 70%);
-      pointer-events:none;
-    }
-    .hero-inner{
-      position:relative;
-      display:grid;
-      gap:26px;
-      align-items:start;
-    }
-    @media(min-width:980px){
-      .hero-inner{ grid-template-columns: 1.25fr .75fr; }
-    }
-
-    .h1{
-      font-size: clamp(38px, 4.2vw, 64px);
-      line-height: 1.03;
+    .section{margin-top:56px}
+    .section-title{
       margin:0 0 14px;
-      letter-spacing: -0.02em;
-      font-weight: 950;
-    }
-    .lead{
-      margin:0;
-      max-width: 62ch;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .bullets{
-      margin:18px 0 0;
-      padding-left: 18px;
-      color: var(--text);
-    }
-    .bullets li{ margin:10px 0; color: var(--text); }
-    .muted{color:var(--muted)}
-    .small{font-size:12px}
-
-    .kpis{
-      display:grid;
-      gap:12px;
-      margin-top: 18px;
-    }
-    .kpis .k{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      border-radius: 18px;
-      padding: 14px;
-    }
-    .k .num{font-size:20px; font-weight:950}
-    .k .lbl{font-size:12px; color:var(--muted); margin-top:4px; line-height:1.35}
-
-    .grid2{
-      display:grid;
-      gap:18px;
-      align-items:start;
-    }
-    @media(min-width:980px){
-      .grid2{ grid-template-columns: 1fr 1fr; }
+      font-size:12px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase
     }
 
     .card{
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:22px;
       box-shadow: var(--shadow);
-      padding: 26px;
-    }
-    .card.soft{
-      background: rgba(255,255,255,.04);
-      box-shadow: none;
+      backdrop-filter: blur(10px);
     }
 
-    .eyebrow{
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-weight: 850;
-      color: rgba(167,176,192,.9);
-      font-size: 12px;
-      margin: 0 0 12px;
+    /* HERO */
+    .hero{
+      display:grid; gap:16px;
+      grid-template-columns: 1.15fr .85fr;
+      align-items:stretch;
     }
-    .h2{
-      font-size: clamp(28px, 2.8vw, 40px);
-      margin: 0 0 12px;
-      letter-spacing: -0.01em;
-      font-weight: 950;
-      line-height: 1.08;
+    @media(max-width:940px){.hero{grid-template-columns:1fr}}
+    .hero h1{
+      margin:0 0 12px;
+      font-size:46px;
+      line-height:1.05;
+      letter-spacing:-.02em;
     }
-    .p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 85ch;
-    }
+    @media(max-width:520px){.hero h1{font-size:36px}}
+    .hero p{margin:0; color:var(--muted); font-size:16px; max-width:70ch}
+    .hero .chips{margin-top:16px}
 
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px;
+      background:var(--accent); color:#fff; border:0; cursor:pointer;
+      text-decoration:none; font-weight:800;
+      box-shadow:0 14px 40px rgba(37,99,235,.25);
+      white-space:nowrap;
+    }
+    .btn:hover{background:#1d4ed8; text-decoration:none}
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,.16);
+      color:var(--text);
+      box-shadow:none;
+    }
+    .btn.secondary:hover{
+      border-color:rgba(255,255,255,.28);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
     .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(125,211,252,.22);
-      background: rgba(125,211,252,.10);
-      color:#d7f3ff;
-      font-size: 13px;
-      font-weight: 700;
+      font-size:12px; padding:7px 11px; border-radius:999px;
+      border:1px solid rgba(96,165,250,.25);
+      background:var(--chip);
+      color:#cfe7ff;
     }
 
-    /* About with photo */
-    .about{
-      display:grid;
-      gap:18px;
-      align-items:center;
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px}
+    .kpi .box{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:12px;
     }
-    @media(min-width:980px){
-      .about{ grid-template-columns: .88fr 1.12fr; }
-    }
-    .photo{
-      border-radius: 26px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      min-height: 280px;
-      position:relative;
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.05);
-    }
-    .photo:after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(7,11,20,.0), rgba(7,11,20,.55));
-      pointer-events:none;
-    }
-    .about-actions{
-      display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;
-    }
+    .kpi .num{font-size:18px; font-weight:900}
+    .kpi .lbl{font-size:12px; color:var(--muted); margin-top:3px}
 
-    /* Portfolio */
-    .portfolio-grid{
-      display:grid;
-      gap:18px;
-    }
-    @media(min-width:980px){
-      .portfolio-grid{ grid-template-columns: 1fr 1fr; }
-    }
-    .proj{
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height: 100%;
-    }
-    .shot{
-      display:block;
-      border-radius: 18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      text-decoration:none !important;
-    }
-    .shot img{
-      width:100%;
-      height: 230px;
-      object-fit: cover;
-      display:block;
-    }
-    .proj h3{
-      margin: 2px 0 0;
-      font-size: 18px;
-      font-weight: 950;
-      letter-spacing:-0.01em;
-    }
-    .proj p{ margin:0; color: var(--muted); line-height:1.6 }
-    .list{
-      margin:0;
-      padding-left:18px;
-      color: var(--text);
-    }
-    .list li{ margin:8px 0; }
-    .proj-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px; }
-
-    /* Quick request form */
-    .form-wrap{
-      display:grid;
-      gap:18px;
-      align-items:start;
-    }
-    @media(min-width:980px){
-      .form-wrap{ grid-template-columns: 1.1fr .9fr; }
-    }
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    label{
-      color: rgba(167,176,192,.95);
-      font-weight: 750;
-      font-size: 13px;
-      letter-spacing:.02em;
-    }
+    /* FORM */
+    .form h3{margin:0 0 10px; font-size:18px}
+    .form p{margin:0 0 14px; color:var(--muted)}
+    .field{display:flex; flex-direction:column; gap:8px; margin-top:12px}
+    .label{font-size:13px; color:var(--muted)}
     input, textarea{
       width:100%;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      padding: 14px 16px;
-      font-size: 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      padding:14px 14px;
       outline:none;
+      font-size:14px;
     }
-    textarea{ min-height: 140px; resize: vertical; }
-    input:focus, textarea:focus{
-      border-color: rgba(125,211,252,.32);
-      box-shadow: 0 0 0 4px rgba(125,211,252,.10);
+    input:focus, textarea:focus{border-color:rgba(96,165,250,.55)}
+    textarea{min-height:110px; resize:vertical}
+
+    /* CTA button tweaks (your request) */
+    .cta-top{
+      background:#facc15; /* yellow */
+      color:#111827;
+      box-shadow:0 18px 45px rgba(250,204,21,.22);
+      font-size:20px;     /* ~2x compared to default 14-16 */
+      padding:14px 16px;
+      border:0;
+      font-weight:900;
+    }
+    .cta-top:hover{background:#fbbf24}
+
+    /* ABOUT */
+    .about{
+      display:grid; gap:18px;
+      grid-template-columns: 220px 1fr;
+      align-items:start;
+    }
+    @media(max-width:760px){.about{grid-template-columns:1fr}}
+    .avatar{
+      width:200px; height:200px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.04);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .avatar img{
+      width:100%; height:100%; object-fit:cover;
+      display:block;
     }
 
-    .btn-yellow{
+    /* PROJECTS */
+    .projects{
+      display:grid; gap:16px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media(max-width:940px){.projects{grid-template-columns:1fr}}
+    .proj{
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+    .proj h3{margin:8px 0 8px; font-size:20px}
+    .muted{color:var(--muted)}
+    .bul{margin:10px 0 0 18px}
+    .bul li{margin:7px 0}
+
+    .thumb{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+    }
+    .thumb img{
       width:100%;
-      border: 0;
-      border-radius: 18px;
-      background: linear-gradient(180deg, var(--yellow2), var(--yellow));
-      color: #0b1220;
-      font-weight: 950;
-      cursor:pointer;
-      padding: 18px 18px;
-      box-shadow: 0 20px 55px rgba(250,204,21,.18);
-      text-decoration:none;
-      text-align:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+      display:block;
+      object-fit:cover;
+      aspect-ratio: 16 / 9;
     }
-    /* “в 2 раза” крупнее: было ~18px, ставим ~36px */
-    .btn-yellow span{
-      font-size: 36px;
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .btn-yellow:hover{ filter: brightness(1.02); }
+    .thumb a{display:block}
+    .thumb a:hover{opacity:.95}
 
-    .note{
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(167,176,192,.92);
-      line-height: 1.5;
-    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .divider{height:1px; background:rgba(255,255,255,.10); margin:16px 0}
 
-    /* Divider section spacing */
-    .spacer{
-      height: 42px;
+    /* FOOTER */
+    .footer{
+      margin-top:56px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+      color:var(--muted);
     }
-
-    /* Footer */
-    footer{
-      margin-top: 70px;
-      padding-top: 26px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .links{
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .links a{
-      color: var(--muted);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-    }
-    .links a:hover{ color: var(--text); text-decoration:none; border-color: rgba(255,255,255,.18); }
-
-    /* Make sections feel like “screens” */
-    .screen{
-      padding-top: 10px;
-    }
+    .mini{font-size:12px}
   </style>
 </head>
 
 <body>
-
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>AI-Automation / B2B</span>
-      </div>
-
-      <nav class="nav">
-        <a href="#offer">Предложение</a>
-        <a href="#cases">Портфолио</a>
-        <a href="#services">Что делаю</a>
-        <a href="#about">Обо мне</a>
-        <a href="#contact">Запрос</a>
-      </nav>
-
-      <div class="cta-mini">
-        <a class="btn" href="mailto:poa.findir@gmail.com">poa.findir@gmail.com</a>
-        <a class="btn primary" href="#contact">Сделать запрос</a>
-      </div>
-    </div>
-  </div>
-
   <div class="wrap">
 
-    <!-- HERO / OFFER -->
-    <section id="offer" class="hero screen">
-      <div class="hero-inner">
-        <div>
-          <p class="eyebrow">AI-native веб-приложения для B2B</p>
-          <h1 class="h1">Автоматизирую заявки, документы и контроль качества — быстро и наглядно</h1>
-          <p class="lead">
-            Делаю продающие демо и MVP для управляющих компаний, подрядчиков и B2B-сервисов:
-            диспетчеризация обращений, SLA-аналитика, акты “до/после”, генерация PDF/ZIP-пакетов документов.
-          </p>
+    <!-- TOP NAV -->
+    <div class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>AI-автоматизация • B2B</span>
+      </div>
+      <div class="navlinks">
+        <a href="#offer">Предложение</a>
+        <a href="#about">Обо мне</a>
+        <a href="#what">Что делаю</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact">Контакт</a>
+      </div>
+    </div>
 
-          <ul class="bullets">
-            <li><b>Понятный результат:</b> интерфейс + сценарий + данные + экспорт документов.</li>
-            <li><b>AI встроен в процесс:</b> классификация, чек-листы, уточняющие вопросы, проверки качества.</li>
-            <li><b>Можно показывать клиентам:</b> демо по ссылке (GitHub Pages).</li>
-          </ul>
+    <!-- HERO + FORM -->
+    <section id="offer" class="hero">
+      <div class="card">
+        <div class="section-title">Основное предложение</div>
+        <h1>Соберу AI-приложение для вашего процесса за дни, а не месяцы.</h1>
+        <p>
+          Делаю AI-native B2B веб-приложения: заявки/обращения, SLA, документы (PDF/ZIP), реестры,
+          контроль качества “до/после”, аналитика и дашборды. Подходит УК/ТСЖ и любому сервисному бизнесу.
+        </p>
 
-          <div class="chips">
-            <span class="chip">B2B процессы</span>
-            <span class="chip">Gemini / AI Studio</span>
-            <span class="chip">Документы (PDF/ZIP)</span>
-            <span class="chip">SLA / диспетчеризация</span>
-            <span class="chip">CV “до/после”</span>
+        <div class="kpi">
+          <div class="box">
+            <div class="num">3</div>
+            <div class="lbl">готовых демо-проекта</div>
+          </div>
+          <div class="box">
+            <div class="num">B2B</div>
+            <div class="lbl">продуктовый подход</div>
+          </div>
+          <div class="box">
+            <div class="num">MVP</div>
+            <div class="lbl">быстрый запуск</div>
           </div>
         </div>
 
-        <div>
-          <div class="kpis">
-            <div class="k">
-              <div class="num">3</div>
-              <div class="lbl">готовых демо-проекта<br/>с публичными ссылками</div>
-            </div>
-            <div class="k">
-              <div class="num">2–7 дней</div>
-              <div class="lbl">типичный цикл: “идея → рабочее демо”</div>
-            </div>
-            <div class="k">
-              <div class="num">Фокус</div>
-              <div class="lbl">ЖКХ / УК / B2B документооборот и операции</div>
-            </div>
+        <div class="chips" style="margin-top:16px">
+          <span class="chip">Заявки + статусы</span>
+          <span class="chip">SLA + приоритеты</span>
+          <span class="chip">PDF/ZIP документы</span>
+          <span class="chip">Gemini / AI Studio</span>
+          <span class="chip">React / TS</span>
+        </div>
 
-            <a class="btn primary" href="#cases" style="justify-content:center; margin-top:8px;">Посмотреть портфолио</a>
-            <a class="btn" href="#contact" style="justify-content:center;">Сделать запрос</a>
-            <p class="small muted" style="margin:8px 0 0; line-height:1.45">
-              Нажмите “Сделать запрос” — откроется письмо с заготовкой. Можно заполнить за 2–3 минуты.
-            </p>
+        <div class="actions" style="margin-top:18px">
+          <a class="btn" href="#portfolio">Смотреть портфолио</a>
+          <a class="btn secondary" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card form">
+        <div class="section-title">Быстрый запрос (2–3 минуты)</div>
+        <p>Нажимая “Сделать запрос”, откроется ваш почтовый клиент с готовым письмом.</p>
+
+        <!-- BUTTON MOVED TO TOP + YELLOW + BIG TEXT -->
+        <a id="makeRequestBtn" class="btn cta-top" href="#">Сделать запрос</a>
+
+        <div class="field">
+          <div class="label">Имя</div>
+          <input id="name" type="text" placeholder="Александр" />
+        </div>
+
+        <div class="field">
+          <div class="label">Email / Телефон</div>
+          <input id="contactInfo" type="text" placeholder="email или телефон" />
+        </div>
+
+        <div class="field">
+          <div class="label">Коротко о задаче</div>
+          <textarea id="task" placeholder="Сфера, процесс, роли пользователей, что нужно на выходе (документ/панель/автоматизация)"></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="mini muted">
+          Совет: укажите роли пользователей + входные данные (текст/фото/таблицы) + желаемый результат и сроки.
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-title">Обо мне</div>
+      <div class="card about">
+        <div class="avatar">
+          <img src="assets/me.png" alt="Фото/иллюстрация" />
+        </div>
+        <div>
+          <h2 style="margin:0 0 10px; font-size:28px; letter-spacing:-.01em;">AI-разработка для B2B: от постановки до работающего демо.</h2>
+          <p class="muted" style="margin:0; max-width:92ch;">
+            Я разрабатываю AI-native веб-приложения для B2B: автоматизация заявок, документов и контроль качества работ.
+            Сильные стороны — продуктовая постановка задачи, conversational UX, устойчивые промты, аккуратные интерфейсы,
+            и доведение демо до пилота (роли, статусы, реестры, экспорт PDF/ZIP).
+          </p>
+
+          <div class="chips" style="margin-top:14px">
+            <span class="chip">Product + Full-stack</span>
+            <span class="chip">B2B процессы</span>
+            <span class="chip">React / TypeScript</span>
+            <span class="chip">Gemini / AI Studio</span>
+            <span class="chip">Документы / Реестры</span>
+          </div>
+
+          <div class="actions" style="margin-top:16px">
+            <a class="btn secondary" href="mailto:poa.findir@gmail.com">poa.findir@gmail.com</a>
+            <a class="btn secondary" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub: poafindir-rgb</a>
+          </div>
+
+          <div class="mini muted" style="margin-top:12px">
+            (Опыт/цифры можно дописать одной строкой: годы, отрасли, масштабы, KPI.)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I BUILD -->
+    <section id="what" class="section">
+      <div class="section-title">Какие проекты делаю</div>
+      <div class="card">
+        <div style="display:grid; gap:14px; grid-template-columns:1fr 1fr;">
+          <div style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); border-radius:18px; padding:16px;">
+            <h3 style="margin:0 0 8px;">AI-диспетчеризация / Service Desk</h3>
+            <ul class="bul">
+              <li>Классификация обращений + уточнения по чек-листу.</li>
+              <li>SLA, приоритеты, статусы, маршруты и “окна доступа”.</li>
+              <li>Роли: житель/диспетчер/мастер/руководитель + аналитика.</li>
+            </ul>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); border-radius:18px; padding:16px;">
+            <h3 style="margin:0 0 8px;">AI-документооборот</h3>
+            <ul class="bul">
+              <li>Генерация протоколов, уведомлений, актов, бюллетеней.</li>
+              <li>Проверка комплектности и логики (кворум/приложения/ошибки).</li>
+              <li>Экспорт PDF/ZIP “пакет для архива/проверок”.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="display:grid; gap:14px; grid-template-columns:1fr 1fr;">
+          <div style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); border-radius:18px; padding:16px;">
+            <h3 style="margin:0 0 8px;">Контроль качества “до/после”</h3>
+            <ul class="bul">
+              <li>Проверка комплектности фото и ракурсов.</li>
+              <li>Авто-описание изменений и выявление недостающих доказательств.</li>
+              <li>Отчёт + акт в PDF.</li>
+            </ul>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); border-radius:18px; padding:16px;">
+            <h3 style="margin:0 0 8px;">Форматы работы</h3>
+            <ul class="bul">
+              <li>MVP/демо за короткий цикл.</li>
+              <li>Аудит промтов и устойчивости.</li>
+              <li>Доработка до пилота: роли, данные, метрики.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="cases" class="screen">
-      <p class="eyebrow">Портфолио</p>
-      <h2 class="h2">Готовые демо-проекты (со скриншотами)</h2>
-      <p class="p">
-        Ниже 3 проекта, которые можно открыть и “покликать”. Скриншоты берутся из <code>assets/projects/…</code>.
-        Если у тебя другие имена файлов — просто поменяй <code>src</code> у картинок.
-      </p>
+    <section id="portfolio" class="section">
+      <div class="section-title">Портфолио (со скриншотами)</div>
 
-      <div class="spacer"></div>
-
-      <div class="portfolio-grid">
+      <div class="projects">
 
         <!-- Project 1 -->
         <article class="proj">
-          <a class="shot" href="https://poafindir-rgb.github.io/jkh-acts/" target="_blank" rel="noreferrer">
-            <img src="/poa.github.io/assets/projects/jkh-acts.png" alt="Скрин: Актирование работ ЖКХ (до/после)">
-          </a>
+          <div class="thumb">
+            <a href="assets/jkh-acts-1.png" target="_blank" rel="noreferrer">
+              <img src="assets/jkh-acts-1.png" alt="Скрин: Актирование работ ЖКХ" />
+            </a>
+          </div>
+          <h3>Проект 1 — «Актирование работ ЖКХ (до/после)»</h3>
+          <p class="muted" style="margin:0">
+            Фиксация выполненных работ, проверка качества “до/после”, генерация PDF (акт + отчёт).
+          </p>
 
-          <h3>«Актирование работ ЖКХ (до/после)»</h3>
-          <p>Фиксация работ, AI-проверка качества и генерация PDF-документов.</p>
-
-          <ul class="list">
-            <li>Реестр заявок и статусы.</li>
-            <li>Фото “до/после” + проверка комплектности.</li>
-            <li>AI-описание изменений и замечания к качеству.</li>
-            <li>Экспорт: акт + иллюстрированный отчёт (PDF).</li>
+          <ul class="bul">
+            <li>Реестр заявок со статусами и поиском.</li>
+            <li>AI-классификация работ + чек-лист фото-доказательств.</li>
+            <li>PDF: акт + иллюстрированный отчёт.</li>
           </ul>
 
-          <div class="proj-actions">
-            <a class="btn primary" href="https://poafindir-rgb.github.io/jkh-acts/" target="_blank" rel="noreferrer">Открыть сайт</a>
-            <a class="btn" href="https://github.com/poafindir-rgb/jkh-acts" target="_blank" rel="noreferrer">Код</a>
+          <div class="actions">
+            <a class="btn" href="https://poafindir-rgb.github.io/jkh-acts/" target="_blank" rel="noreferrer">Открыть сайт</a>
+            <a class="btn secondary" href="https://github.com/poafindir-rgb/jkh-acts" target="_blank" rel="noreferrer">Код</a>
           </div>
         </article>
 
         <!-- Project 2 -->
         <article class="proj">
-          <a class="shot" href="https://poafindir-rgb.github.io/uk-neuro-dispatcher/" target="_blank" rel="noreferrer">
-            <img src="/poa.github.io/assets/projects/uk-neuro-dispatcher.png" alt="Скрин: Нейро-диспетчер УК / Facility Desk">
-          </a>
+          <div class="thumb">
+            <a href="assets/uk-dispatcher-1.png" target="_blank" rel="noreferrer">
+              <img src="assets/uk-dispatcher-1.png" alt="Скрин: Нейро-диспетчер УК / Facility Desk" />
+            </a>
+          </div>
+          <h3>Проект 2 — «Нейро-диспетчер УК / Facility Desk»</h3>
+          <p class="muted" style="margin:0">
+            Приём обращений, уточнения по чек-листу, SLA, задачи техникам, аналитика причин и нагрузки.
+          </p>
 
-          <h3>«Нейро-диспетчер УК / Facility Desk»</h3>
-          <p>Приём обращений, уточнения по чек-листу, SLA, задачи техникам и аналитика.</p>
-
-          <ul class="list">
-            <li>Роли: житель / диспетчер / техник / управляющий.</li>
-            <li>AI-классификация, чек-лист, уточняющие вопросы.</li>
-            <li>SLA-таймеры и приоритизация.</li>
-            <li>Аналитика нагрузок и причин инцидентов.</li>
+          <ul class="bul">
+            <li>Роли: житель / диспетчер / мастер / руководитель.</li>
+            <li>AI: классификация + уточняющие вопросы + инструкции.</li>
+            <li>Аналитика: SLA, причины аварий, загрузка бригад.</li>
           </ul>
 
-          <div class="proj-actions">
-            <a class="btn primary" href="https://poafindir-rgb.github.io/uk-neuro-dispatcher/" target="_blank" rel="noreferrer">Открыть сайт</a>
-            <a class="btn" href="https://github.com/poafindir-rgb/uk-neuro-dispatcher" target="_blank" rel="noreferrer">Код</a>
+          <div class="actions">
+            <a class="btn" href="https://poafindir-rgb.github.io/uk-neuro-dispatcher/" target="_blank" rel="noreferrer">Открыть сайт</a>
+            <a class="btn secondary" href="https://github.com/poafindir-rgb/uk-neuro-dispatcher" target="_blank" rel="noreferrer">Код</a>
           </div>
         </article>
 
         <!-- Project 3 -->
         <article class="proj">
-          <a class="shot" href="https://poafindir-rgb.github.io/oss-docmaster/" target="_blank" rel="noreferrer">
-            <img src="/poa.github.io/assets/projects/oss-docmaster.png" alt="Скрин: ОСС-ДокМастер">
-          </a>
+          <div class="thumb">
+            <a href="assets/oss-docmaster-1.png" target="_blank" rel="noreferrer">
+              <img src="assets/oss-docmaster-1.png" alt="Скрин: ОСС-ДокМастер" />
+            </a>
+          </div>
+          <h3>Проект 3 — «ОСС-ДокМастер»</h3>
+          <p class="muted" style="margin:0">
+            Подготовка ОСС: повестка, бюллетени, протоколы, проверки, реестры, экспорт ZIP.
+          </p>
 
-          <h3>«ОСС-ДокМастер»</h3>
-          <p>Генерация пакета документов ОСС + AI-проверки логики, реестры и экспорт PDF/ZIP.</p>
-
-          <ul class="list">
-            <li>Конструктор ОСС (тип, повестка, собственники).</li>
-            <li>AI-генерация уведомлений, бюллетеней, протоколов.</li>
-            <li>AI-аудит кворума, приложений, формулировок.</li>
-            <li>Экспорт PDF и ZIP “пакет для архива/проверок”.</li>
+          <ul class="bul">
+            <li>Конструктор ОСС: тип, даты, повестка, собственники.</li>
+            <li>AI-генерация документов + compliance-проверки.</li>
+            <li>Экспорт PDF/ZIP “пакет для архива”.</li>
           </ul>
 
-          <div class="proj-actions">
-            <a class="btn primary" href="https://poafindir-rgb.github.io/oss-docmaster/" target="_blank" rel="noreferrer">Открыть сайт</a>
-            <a class="btn" href="https://github.com/poafindir-rgb/oss-docmaster" target="_blank" rel="noreferrer">Код</a>
+          <div class="actions">
+            <a class="btn" href="https://poafindir-rgb.github.io/oss-docmaster/" target="_blank" rel="noreferrer">Открыть сайт</a>
+            <a class="btn secondary" href="https://github.com/poafindir-rgb/oss-docmaster" target="_blank" rel="noreferrer">Код</a>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="screen">
-      <p class="eyebrow">Что делаю</p>
-      <h2 class="h2">Какие проекты могу собрать под ваш процесс</h2>
-
-      <div class="grid2">
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">AI-агенты и диспетчеризация</h3>
-          <p class="p">Приём обращений, уточнения по чек-листу, классификация, приоритеты, SLA, задачи и уведомления.</p>
-          <div class="chips">
-            <span class="chip">Чат / почта / телефония</span>
-            <span class="chip">Классификация</span>
-            <span class="chip">SLA</span>
-            <span class="chip">Роли и статусы</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">Документооборот и комплаенс</h3>
-          <p class="p">Генерация и проверка документов, реестры, контроль комплектности, “пакеты для архива/проверок”.</p>
-          <div class="chips">
-            <span class="chip">PDF/ZIP</span>
-            <span class="chip">Шаблоны</span>
-            <span class="chip">Логические проверки</span>
-            <span class="chip">Реестры</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">Контроль качества “до/после”</h3>
-          <p class="p">Проверка фото-доказательств, сравнение изменений, подсказка недостающих материалов, отчёты.</p>
-          <div class="chips">
-            <span class="chip">CV</span>
-            <span class="chip">Checklists</span>
-            <span class="chip">Отчёты</span>
-            <span class="chip">Акты</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">B2B-панели и аналитика</h3>
-          <p class="p">Дашборды, метрики SLA, нагрузка команд, причины обращений, экспорт отчётов.</p>
-          <div class="chips">
-            <span class="chip">Dashboard</span>
-            <span class="chip">SLA</span>
-            <span class="chip">Аналитика</span>
-            <span class="chip">Экспорт</span>
-          </div>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-title">Контакт</div>
+      <div class="card">
+        <h2 style="margin:0 0 10px; font-size:28px;">Готов обсудить задачу и предложить план работ.</h2>
+        <p class="muted" style="margin:0; max-width:92ch;">
+          Напишите, что автоматизируем (процесс), кто пользователи (роли), какие входные данные (текст/фото/таблицы),
+          и что нужно на выходе (панель/документ/интеграция). Я отвечу с вариантом решения и шагами.
+        </p>
+        <div class="actions" style="margin-top:16px">
+          <a class="btn" href="mailto:poa.findir@gmail.com?subject=Запрос%20на%20AI%20проект&body=Здравствуйте!%0A%0AКоротко о задаче:%0A1)%20Сфера:%0A2)%20Процесс:%0A3)%20Кто пользователи:%0A4)%20Что на выходе (панель/документ/автоматизация):%0A5)%20Сроки:%0A%0AСпасибо!">Написать на почту</a>
+          <a class="btn secondary" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="screen">
-      <p class="eyebrow">Обо мне</p>
-      <h2 class="h2">AI-автоматизация, продуктовый подход, аккуратный UX</h2>
-
-      <div class="about">
-        <div class="photo">
-          <!-- Фото должно лежать тут: assets/me.png -->
-          <img src="/poa.github.io/assets/me.png" alt="Фото: программист за ноутбуком в вечернем городе">
-        </div>
-
-        <div class="card soft" style="padding:22px;">
-          <p class="p">
-            Разрабатываю AI-native веб-приложения для B2B: автоматизация заявок, документов и контроль качества работ.
-            Сильные стороны — продуктовая постановка задачи, conversational UX, устойчивые промты,
-            аккуратные интерфейсы и доведение демо до пилота (роли, статусы, реестры, экспорт PDF/ZIP).
-          </p>
-
-          <div class="chips">
-            <span class="chip">Product + Full-stack</span>
-            <span class="chip">B2B процессы</span>
-            <span class="chip">React / TS</span>
-            <span class="chip">Gemini / AI Studio</span>
-            <span class="chip">Документы / Реестры</span>
-          </div>
-
-          <div class="about-actions">
-            <a class="btn" href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn primary" href="#contact">Связаться</a>
-          </div>
-
-          <p class="note">Опыт/цифры можно добавить одной строкой (проекты, годы, отрасли).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT / FORM -->
-    <section id="contact" class="screen">
-      <p class="eyebrow">Контакт</p>
-      <h2 class="h2">Быстрый запрос (2–3 минуты)</h2>
-      <p class="p">Нажимая “Сделать запрос”, откроется ваш почтовый клиент с готовым письмом.</p>
-
-      <div class="spacer"></div>
-
-      <div class="form-wrap">
-        <div class="card">
-
-          <!-- КНОПКА В НАЧАЛЕ БЛОКА -->
-          <a id="sendBtn" class="btn-yellow" href="#">
-            <span>Сделать запрос</span>
-          </a>
-
-          <div class="note">Подставим в письмо то, что вы введёте ниже.</div>
-
-          <div style="height:18px"></div>
-
-          <div class="field">
-            <label for="name">Имя</label>
-            <input id="name" type="text" placeholder="Александр" />
-          </div>
-
-          <div style="height:12px"></div>
-
-          <div class="field">
-            <label for="contactInfo">Email / Телефон</label>
-            <input id="contactInfo" type="text" placeholder="email или телефон" />
-          </div>
-
-          <div style="height:12px"></div>
-
-          <div class="field">
-            <label for="task">Коротко о задаче</label>
-            <textarea id="task" placeholder="Сфера, процесс, роли пользователей, что нужно на выходе (документ/панель/автоматизация)"></textarea>
-          </div>
-
-          <p class="note">
-            Советы: укажите роли пользователей, входные данные (текст/фото/таблицы), желаемый результат и сроки.
-          </p>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">Стек</h3>
-          <div class="chips">
-            <span class="chip">Google AI Studio</span>
-            <span class="chip">Gemini</span>
-            <span class="chip">React</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">Tailwind</span>
-            <span class="chip">PDF / ZIP</span>
-            <span class="chip">LocalStorage</span>
-            <span class="chip">Express / SQLite (в демо)</span>
-          </div>
-
-          <div style="height:18px"></div>
-
-          <h3 style="margin:0 0 10px; font-size:20px; font-weight:950;">Быстрые форматы</h3>
-          <ul class="list">
-            <li>MVP за 2–7 дней: интерфейс + сценарии + данные + экспорт.</li>
-            <li>AI-агент: классификация → уточнения → результат (JSON/документ/задача).</li>
-            <li>Проверки качества: комплектность, логика, “до/после”.</li>
-          </ul>
-
-          <div style="height:18px"></div>
-
-          <div class="links">
-            <a href="mailto:poa.findir@gmail.com">poa.findir@gmail.com</a>
-            <a href="https://github.com/poafindir-rgb" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="#cases">Портфолио</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <span id="y"></span> • GitHub Pages</div>
-      <div class="links">
-        <a href="#offer">Вверх</a>
-        <a href="#cases">Портфолио</a>
-        <a href="#contact">Сделать запрос</a>
-      </div>
-    </footer>
+    <div class="footer">
+      <div class="mini">© <span id="y"></span> • Сделано на GitHub Pages</div>
+      <div class="mini">Контакт: <span class="muted">poa.findir@gmail.com</span></div>
+    </div>
 
   </div>
 
@@ -773,37 +509,32 @@
     // year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Build mailto from inputs
-    function buildMailto(){
+    // mailto builder for the "Сделать запрос" button
+    function buildMailto() {
       const name = (document.getElementById('name').value || '').trim();
-      const contactInfo = (document.getElementById('contactInfo').value || '').trim();
+      const contact = (document.getElementById('contactInfo').value || '').trim();
       const task = (document.getElementById('task').value || '').trim();
 
-      const subject = 'Запрос на AI-проект';
-      const body =
+      const subject = encodeURIComponent('Запрос на AI-проект (лендинг/автоматизация)');
+      const body = encodeURIComponent(
 `Здравствуйте!
 
-Меня зовут: ${name || '[имя не указано]'}
-Контакт: ${contactInfo || '[контакт не указан]'}
+Имя: ${name || '—'}
+Контакт: ${contact || '—'}
 
 Коротко о задаче:
-${task || '[описание задачи не указано]'}
+${task || '—'}
 
-—
-Что хочу на выходе: (документ/панель/автоматизация/агент)
-Сроки:
-Данные: (текст/фото/таблицы)
-`;
+Спасибо!`
+      );
 
-      const mailto = `mailto:poa.findir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      return mailto;
+      return `mailto:poa.findir@gmail.com?subject=${subject}&body=${body}`;
     }
 
-    document.getElementById('sendBtn').addEventListener('click', (e) => {
+    document.getElementById('makeRequestBtn').addEventListener('click', function(e){
       e.preventDefault();
       window.location.href = buildMailto();
     });
   </script>
-
 </body>
 </html>
